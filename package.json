@@ -12,7 +12,7 @@
     "url": "git+ssh://git@bitbucket.org/asait/movie404.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "https://bitbucket.org/asait/movie404#readme",
   "dependencies": {
     "axios": "^0.13.1",
@@ -34,5 +34,12 @@
     "redux-thunk": "^2.1.0",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "eslint": "^3.3.1",
+    "eslint-loader": "^1.5.0",
+    "eslint-plugin-import": "^1.13.0",
+    "eslint-plugin-react": "^6.1.1"
   }
 }
