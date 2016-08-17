@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import Movie from "../components/Movie";
 import Nav from "../components/layout/Nav";
 
 import { fetchMovies } from "../actions/discoveryActions";
@@ -12,25 +13,26 @@ import { fetchMovies } from "../actions/discoveryActions";
 })
 
 export default class Layout extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      movies: []
-    };
-  }
   componentWillMount() {
     this.props.dispatch(fetchMovies({sort_by: "popularity.desc"}));
   }
+
   render() {
-    let mappedMovies = this.props.movies.map((movie, i) => {
-      return <div key={i}>{movie.original_title}</div>;
+    let mappedMovies = this.props.movies.map((movie) => {
+      return <Movie key={movie.id} movie={movie}/>;
     });
+
+    const containerStyle = {
+      marginTop: "60px"
+    };
 
     return (
       <div>
         <Nav/>
-        <div>
-        {mappedMovies}
+        <div class="container" style={containerStyle}>
+          <div class="row">
+            {mappedMovies}
+          </div>
         </div>
       </div>
     );
