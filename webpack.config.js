@@ -1,13 +1,13 @@
-var debug = process.env.NODE_ENV !== "production";
 var webpack = require("webpack");
 var path = require("path");
 
 const API_KEY = JSON.stringify("fddbc809fcf78a80db20519380baad8d");
 const BASE_URL = JSON.stringify("http://api.themoviedb.org/3");
+const DEBUG = process.env.NODE_ENV !== "production";
 
 module.exports = {
   context: path.join(__dirname, "src"),
-  devtool: debug ? "source-map" : null,
+  devtool: DEBUG ? "source-map" : null,
   entry: "./js/client.js",
   module: {
     preLoaders: [
@@ -33,18 +33,20 @@ module.exports = {
     path: __dirname + "/src/",
     filename: "client.min.js"
   },
-  plugins: debug ? [
+  plugins: DEBUG ? [
     new webpack.DefinePlugin({
+      API_KEY,
       BASE_URL,
-      API_KEY
+      DEBUG
     })
   ] : [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
     new webpack.DefinePlugin({
+      API_KEY,
       BASE_URL,
-      API_KEY
+      DEBUG
     })
   ],
 };

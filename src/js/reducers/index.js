@@ -1,7 +1,11 @@
 import { combineReducers } from "redux";
 
-import discovery from "./discoveryReducer";
+import configuration from "./configurationReducer";
+import discover from "./discoverReducer";
+import genres from "./genreReducer";
 
 export default combineReducers({
-  discovery
+  configuration,
+  discover,
+  genres
 });
