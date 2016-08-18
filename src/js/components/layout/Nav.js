@@ -1,54 +1,45 @@
 import React from "react";
 
 export default class Nav extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      collapsed: true
+    };
+  }
+
+  toggleCollapse() {
+    const collapsed = !this.state.collapsed;
+    this.setState({collapsed});
+  }
+
   render() {
     return (
-      <nav class="navbar navbar-default navbar-fixed-top">
-          <div class="container-fluid">
-              <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed"
-                      data-toggle="collapse"
-                      data-target="#bs-example-navbar-collapse-1">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"/>
-                      <span class="icon-bar"/>
-                      <span class="icon-bar"/>
-                  </button>
-                  <a class="navbar-brand" href="#">Movie404</a>
-              </div>
-
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav">
-                      <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                      <li><a href="#">Link</a></li>
-                      <li class="dropdown">
-                          <a href="#" class="dropdown-toggle"
-                          data-toggle="dropdown" role="button" aria-expanded="false">
-                            Dropdown <span class="caret"/>
-                          </a>
-                          <ul class="dropdown-menu" role="menu">
-                              <li><a href="#">Action</a></li>
-                              <li><a href="#">Another action</a></li>
-                              <li><a href="#">Something else here</a></li>
-                              <li class="divider"/>
-                              <li><a href="#">Separated link</a></li>
-                              <li class="divider"/>
-                              <li><a href="#">One more separated link</a></li>
-                          </ul>
-                      </li>
-                  </ul>
-                  <form class="navbar-form navbar-left" role="search">
-                      <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Search"/>
-                      </div>
-                      <button type="submit" class="btn btn-default">Submit</button>
-                  </form>
-                  <ul class="nav navbar-nav navbar-right">
-                      <li><a href="#">Link</a></li>
-                  </ul>
-              </div>
-          </div>
-      </nav>
+      <nav class="uk-navbar uk-margin-large-bottom">
+        <a class="uk-navbar-brand uk-hidden-small" href="layouts_frontpage.html">Brand</a>
+        <ul class="uk-navbar-nav uk-hidden-small">
+            <li>
+                <a href="layouts_frontpage.html">Frontpage</a>
+            </li>
+            <li class="uk-active">
+                <a href="layouts_portfolio.html">Portfolio</a>
+            </li>
+            <li>
+                <a href="layouts_blog.html">Blog</a>
+            </li>
+            <li>
+                <a href="layouts_documentation.html">Documentation</a>
+            </li>
+            <li>
+                <a href="layouts_contact.html">Contact</a>
+            </li>
+            <li>
+                <a href="layouts_login.html">Login</a>
+            </li>
+        </ul>
+        <a href="#offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas=""/>
+        <div class="uk-navbar-brand uk-navbar-center uk-visible-small">Brand</div>
+    </nav>
     );
   }
 }

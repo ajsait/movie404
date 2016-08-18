@@ -9,12 +9,8 @@ export default class MovieList extends React.Component {
       return <MovieItem key={movie.id} movie={movie} configuration={configuration} genres={genres}/>;
     });
     return (
-      <div class="movie-list">
-        <div class="container">
-          <div class="row">
-            {mappedMovies}
-          </div>
-        </div>
+      <div class="uk-grid movie-list">
+        {mappedMovies}
       </div>
     );
   }
