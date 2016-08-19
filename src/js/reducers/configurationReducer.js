@@ -3,16 +3,16 @@ export default function reducer(state = {
   error: null
 }, action) {
   switch (action.type) {
-  case "FETCH_CONFIGURATION_PENDING": {
+  case "FETCH_CONFIGURATION_LOADING": {
     return {...state};
   }
-  case "FETCH_CONFIGURATION_FULFILLED": {
+  case "FETCH_CONFIGURATION_SUCCESS": {
     return {
       ...state,
-      configuration: {...action.payload.data}
+      configuration: {...action.payload}
     };
   }
-  case "FETCH_CONFIGURATION_REJECTED": {
+  case "FETCH_CONFIGURATION_ERROR": {
     return {
       ...state,
       error: action.payload

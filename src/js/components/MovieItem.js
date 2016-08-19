@@ -24,7 +24,7 @@ export default class MovieItem extends React.Component {
           <div class="uk-thumbnail-caption uk-hidden-small">
             <span class="uk-h5">{original_title}</span>
             <p class="uk-text-small">
-              <i class="fa fa-calendar" aria-hidden="true"/>
+              <span href="" class="uk-icon-justify uk-icon-calendar"/>
               &nbsp;&nbsp;
               {releaseYear}
             </p>

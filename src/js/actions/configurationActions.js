@@ -1,13 +1,9 @@
-import axios from "axios";
+import axios from "../axios";
+import * as api from "../api";
 
 export function fetchConfiguration() {
-  return function(dispatch) {
-    dispatch({
-      type: "FETCH_CONFIGURATION",
-      payload: axios.get(BASE_URL + "/configuration", {
-        params: {
-          api_key: API_KEY
-        }})
-    });
-  };
-}
+  return api.get({
+    type: "FETCH_CONFIGURATION",
+    promise: axios.get("/configuration")
+  });
+};

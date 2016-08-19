@@ -1,14 +1,13 @@
-import axios from "axios";
+import axios from "../axios";
+import * as api from "../api";
 
 export function fetchMovies(params = {}) {
-  return function(dispatch) {
-    dispatch({
-      type: "FETCH_DISCOVER_MOVIES",
-      payload: axios.get(BASE_URL + "/discover/movie", {
-        params: {
-          ...params,
-          api_key: API_KEY
-        }})
-    });
-  };
-}
+  return api.get({
+    type: "FETCH_DISCOVER_MOVIES",
+    promise: axios.get("/discover/movie", {
+      params: {
+        ...params
+      }
+    })
+  });
+};

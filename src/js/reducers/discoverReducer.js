@@ -8,18 +8,18 @@ export default function reducer(state = {
   error: null
 }, action) {
   switch (action.type) {
-  case "FETCH_DISCOVER_MOVIES_PENDING": {
+  case "FETCH_DISCOVER_MOVIES_LOADING": {
     return {...state, fetching: true};
   }
-  case "FETCH_DISCOVER_MOVIES_FULFILLED": {
+  case "FETCH_DISCOVER_MOVIES_SUCCESS": {
     return {
       ...state,
       fetching: false,
       fetched: true,
-      ...action.payload.data
+      ...action.payload
     };
   }
-  case "FETCH_DISCOVER_MOVIES_REJECTED": {
+  case "FETCH_DISCOVER_MOVIES_ERROR": {
     return {
       ...state,
       fetching: false,

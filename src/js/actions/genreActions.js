@@ -1,13 +1,9 @@
-import axios from "axios";
+import axios from "../axios";
+import * as api from "../api";
 
 export function fetchMovieGenres() {
-  return (dispatch) => {
-    dispatch({
-      type: "FETCH_GENRE",
-      payload: axios.get(BASE_URL + "/genre/movie/list", {
-        params: {
-          api_key: API_KEY
-        }})
-    });
-  };
-}
+  return api.get({
+    type: "FETCH_GENRE",
+    promise: axios.get("/genre/movie/list")
+  });
+};
