@@ -29,3 +29,7 @@
 .movie-item .uk-thumbnail-caption > p {
   margin: 4px 0px 4px 0px;
 }
+
+a.nav-item, .nav-item a {
+  text-decoration: none;
+}
